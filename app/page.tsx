@@ -62,9 +62,12 @@ export default function HomePage() {
                     </Button>
                   </Link>
                   <a href="tel:(202)355-8110" className="w-full sm:w-auto">
-                    <Button variant="outline" className="w-full sm:w-auto border-white/15 text-white hover:bg-white/5 font-semibold h-12 px-8 rounded-xl">
-                      Call Operational Desk
-                    </Button>
+                  <Button 
+  variant="outline" 
+  className="w-full sm:w-auto bg-transparent border-white/20 text-white hover:bg-white/10 hover:text-white font-semibold h-12 px-8 rounded-xl transition-colors"
+>
+  Call Operational Desk
+</Button>
                   </a>
                 </div>
               </div>
