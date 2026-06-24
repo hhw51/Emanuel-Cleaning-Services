@@ -126,11 +126,12 @@ export default function ServicesPage() {
                         </li>
                       ))}
                     </ul>
-                    <Link href={`/estimate?service=${service.id}`}>
-  <Button className="w-full bg-primary text-white hover:bg-primary/90">
-    Get Quote
-  </Button>
-</Link>                  </div>
+                    <Link href="/estimate?service=" + service.id>
+                      <Button className="w-full bg-primary text-white hover:bg-primary/90">
+                        Get Quote
+                      </Button>
+                    </Link>
+                  </div>
                 )
               })}
             </div>

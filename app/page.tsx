@@ -47,7 +47,7 @@ export default function HomePage() {
         </section>
 
         {/* Bento Grid Services */}
-        <section className="py-20 md:py-28 bg-secondary/30">
+        <section className="py-20 md:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">Our Services</h2>
@@ -148,7 +148,7 @@ export default function HomePage() {
         </section>
 
         {/* Testimonials */}
-        <section className="py-20 md:py-28 bg-secondary/50">
+        <section className="py-20 md:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">What Our Clients Say</h2>
