@@ -3,143 +3,230 @@ import { Footer } from '@/components/footer'
 import { ServiceCard } from '@/components/service-card'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { Sparkles, Home as HomeIcon, Building2, Users, Star } from 'lucide-react'
+import { Sparkles, Home as HomeIcon, Building2, Users, Star, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react'
+import Image from 'next/image'
 
 export default function HomePage() {
+  const testimonials = [
+    {
+      name: "Sarah M.",
+      location: "Fort Belvoir, VA",
+      role: "Military Homeowner",
+      text: "The military move-out cleaning was pristine. They knew precisely what base housing inspectors look for, allowing us to clear clearance protocols seamlessly.",
+      rating: 5
+    },
+    {
+      name: "Marcus K.",
+      location: "Arlington, VA",
+      role: "Operations Director",
+      text: "Our commercial facilities require deep cleaning intervals that don't conflict with office operating hours. Emanuel Cleaners executed beautifully.",
+      rating: 5
+    },
+    {
+      name: "Elena D.",
+      location: "Alexandria, VA",
+      role: "Residential Client",
+      text: "Exceptional recurring residential cleaning service. The team is disciplined, thorough, and highly respectful of our spacing and micro-details.",
+      rating: 5
+    }
+  ];
+
   return (
-    <>
+    <div className="min-h-screen flex flex-col bg-background selection:bg-accent/30">
       <Header />
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-b from-primary to-primary/95 text-white py-20 md:py-28">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-block bg-accent/20 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                  ✓ Insured & Bonded
+        
+        {/* Premium Geometric Hero Space */}
+        <section className="relative bg-primary text-white overflow-hidden py-24 lg:py-32 border-b border-white/5">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,188,212,0.12),transparent_55%)]" />
+          <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:32px_32px]" />
+          
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+              
+              <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 text-accent px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+                  <ShieldCheck size={14} className="animate-pulse" /> Fully Insured, Bonded & Certified
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-balance">
-                  You name it, <span className="text-accent">we clean it!</span>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] text-balance">
+                  You name it, <br />
+                  <span className="bg-gradient-to-r from-accent via-[#4dd0e1] to-white bg-clip-text text-transparent">we clean it!</span>
                 </h1>
-                <p className="text-lg text-white/90 mb-8 leading-relaxed">
-                  Professional cleaning services for residential, commercial, and military properties in Fort Belvoir, Washington D.C. Metro, and Northern Virginia.
+                <p className="text-base sm:text-lg text-white/80 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                  Elite property maintenance engineered for premium residential properties, enterprise commercial offices, and rapid military base move-out standards across Northern Virginia.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/estimate">
-                    <Button className="w-full sm:w-auto bg-accent text-primary hover:bg-accent/90 text-base px-8 py-6 font-semibold">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                  <Link href="/estimate" className="w-full sm:w-auto">
+                    <Button className="w-full sm:w-auto bg-accent text-primary hover:bg-[#4dd0e1] font-bold h-12 px-8 rounded-xl shadow-lg shadow-accent/10 transition-all duration-300">
                       Get Free Quote
                     </Button>
                   </Link>
-                  <a href="tel:(202)355-8110">
-                    <Button className="w-full sm:w-auto bg-white/20 text-white hover:bg-white/30 text-base px-8 py-6 font-semibold">
-                      Call Now
+                  <a href="tel:(202)355-8110" className="w-full sm:w-auto">
+                    <Button variant="outline" className="w-full sm:w-auto border-white/15 text-white hover:bg-white/5 font-semibold h-12 px-8 rounded-xl">
+                      Call Operational Desk
                     </Button>
                   </a>
                 </div>
               </div>
-              <div className="relative">
-                <div className="aspect-square bg-white/10 rounded-2xl border-2 border-accent/30 flex items-center justify-center">
-                  <div className="text-6xl opacity-50">🧹</div>
+
+              {/* High-End Clean Asset Hero Image Block */}
+              <div className="lg:col-span-5 relative hidden lg:block">
+                <div className="relative aspect-[4/5] max-w-[420px] mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-white/5">
+                  <div className="absolute inset-0 bg-primary/20 mix-blend-multiply z-10" />
+                  <Image 
+                    src="/images/residential-cleaning.png" 
+                    alt="Premium House Maintenance Layout"
+                    fill
+                    sizes="420px"
+                    className="object-cover object-center scale-102 filter contrast-[1.02] brightness-90"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent z-20" />
+                  
+                  {/* Micro-UI Detail Card */}
+                  <div className="absolute bottom-6 left-6 right-6 bg-primary/85 backdrop-blur-md border border-white/10 p-5 rounded-xl flex items-center gap-4 z-30 shadow-xl">
+                    <div className="bg-accent/10 p-2.5 rounded-lg text-accent border border-accent/20">
+                      <CheckCircle2 size={22} />
+                    </div>
+                    <div>
+                      <p className="text-[10px] text-white/50 uppercase font-bold tracking-widest">Active Footprint</p>
+                      <p className="text-sm font-semibold text-white tracking-tight">Fort Belvoir, VA & DC Metro</p>
+                    </div>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
         </section>
 
-        {/* Bento Grid Services */}
-        <section className="py-20 md:py-28 bg-white">
+        {/* Clean Balanced Dynamic Grid Section */}
+        <section className="py-24 sm:py-32 bg-[#f8fafc]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">Our Services</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                From residential deep cleans to commercial maintenance, we handle it all with precision and care.
+            <div className="max-w-3xl mb-16 space-y-4 text-center md:text-left">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">Comprehensive Services</h2>
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl">
+                Systematic, checklist-driven procedures optimized for diverse space configurations.
               </p>
             </div>
 
-            {/* Asymmetric Bento Grid */}
+            {/* Premium Bento Grid Config */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Large Featured Card */}
               <ServiceCard
                 title="Residential Cleaning"
-                description="Deep clean your home with our eco-friendly products and attention to detail. Perfect for move-in/move-out or regular maintenance."
-                icon={<HomeIcon size={32} />}
+                description="Ultra-meticulous maintenance program designed for premium residences. Includes allergen containment filtering, eco-friendly surface solutions, and thorough room sanitization."
+                icon={<HomeIcon size={22} />}
                 image="/images/residential-cleaning.png"
                 featured
-                className="md:col-span-2 md:row-span-2 p-8 min-h-80"
+                className="md:col-span-2 md:row-span-2 min-h-[360px]"
               />
 
-              {/* Top Right - Military */}
               <ServiceCard
                 title="Military Move-Out"
-                description="Specialized cleaning for military families relocating. Full compliance with base requirements."
-                icon={<Users size={24} />}
+                description="Strict checklist protocols guaranteed to satisfy challenging base housing clearance requirements."
+                icon={<Users size={20} />}
                 image="/images/military-cleaning.png"
-                className="p-6"
+                className="min-h-[200px]"
               />
 
-              {/* Middle Right - Commercial */}
               <ServiceCard
-                title="Commercial Cleaning"
-                description="Keep your office professional and clean. Flexible scheduling for minimal disruption."
-                icon={<Building2 size={24} />}
+                title="Commercial Spaces"
+                description="Flexible clean logistics engineered around your enterprise runtime workflows to keep spaces immaculate."
+                icon={<Building2 size={20} />}
                 image="/images/commercial-cleaning.png"
-                className="p-6"
+                className="min-h-[200px]"
               />
 
-              {/* Bottom Right - Premium */}
               <ServiceCard
-                title="Premium Detail Service"
-                description="Our most thorough cleaning package with specialized treatments for carpets and upholstery."
-                icon={<Sparkles size={24} />}
-                className="p-6"
+                title="Premium Detail Package"
+                description="Deep extraction cleaning focusing heavily on architectural glass, hard surface sealing, and dense upholstery revitalization paths."
+                icon={<Sparkles size={18} />}
+                className="md:col-span-3 min-h-[130px]"
               />
             </div>
 
-            <div className="text-center mt-12">
+            <div className="text-center md:text-left mt-12">
               <Link href="/services">
-                <Button className="bg-primary text-white hover:bg-primary/90 px-8 py-6 text-base">
-                  View All Services
+                <Button className="bg-primary text-white hover:bg-primary/95 font-semibold h-11 px-6 rounded-xl inline-flex items-center gap-2 shadow-xs cursor-pointer">
+                  View Detailed Checklists <ArrowRight size={15} />
                 </Button>
               </Link>
             </div>
           </div>
         </section>
 
-        {/* Trust Section */}
-        <section className="py-20 md:py-28 bg-white">
+        {/* High End Metrics Ribbon */}
+        <section className="py-16 bg-white border-y border-border/60">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              <div className="text-center">
-                <div className="text-accent text-4xl font-bold mb-2">500+</div>
-                <p className="text-muted-foreground">Happy Clients</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center divide-y sm:divide-y-0 sm:divide-x divide-border/60">
+              <div className="space-y-1 py-4 sm:py-0">
+                <div className="text-4xl font-black text-primary tracking-tight">500+</div>
+                <p className="text-[11px] uppercase tracking-widest font-bold text-muted-foreground">Properties Managed</p>
               </div>
-              <div className="text-center">
-                <div className="text-accent text-4xl font-bold mb-2">10+</div>
-                <p className="text-muted-foreground">Years Experience</p>
+              <div className="space-y-1 py-4 sm:py-0">
+                <div className="text-4xl font-black text-primary tracking-tight">10+</div>
+                <p className="text-[11px] uppercase tracking-widest font-bold text-muted-foreground">Years Trade Expertise</p>
               </div>
-              <div className="text-center">
-                <div className="text-accent text-4xl font-bold mb-2">24/7</div>
-                <p className="text-muted-foreground">Emergency Support</p>
+              <div className="space-y-1 py-4 sm:py-0">
+                <div className="text-4xl font-black text-primary tracking-tight">24/7</div>
+                <p className="text-[11px] uppercase tracking-widest font-bold text-muted-foreground">Emergency Dispatch</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20 md:py-28 bg-primary text-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Ready to Get Your Space Cleaned?</h2>
-            <p className="text-xl text-white/90 mb-8">
-              Get a free, no-obligation quote from our team. Response within 24 hours guaranteed.
+        {/* Testimonials Frame */}
+        <section className="py-24 sm:py-32 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-20">
+              <h2 className="text-3xl font-extrabold text-primary tracking-tight">What Our Clients Say</h2>
+              <div className="w-12 h-1 bg-accent mx-auto mt-4 rounded-full" />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {testimonials.map((t, idx) => (
+                <div key={idx} className="bg-secondary/40 rounded-2xl p-8 border border-border/50 flex flex-col justify-between shadow-xs hover:border-accent/20 transition-colors duration-300">
+                  <div>
+                    <div className="flex gap-0.5 mb-5 text-accent">
+                      {[...Array(t.rating)].map((_, j) => (
+                        <Star key={j} size={15} className="fill-current" />
+                      ))}
+                    </div>
+                    <p className="text-sm text-primary/90 italic leading-relaxed mb-8">
+                      &quot;{t.text}&quot;
+                    </p>
+                  </div>
+                  <div className="border-t border-border/40 pt-4 flex items-center justify-between">
+                    <div>
+                      <p className="font-bold text-sm text-primary">{t.name}</p>
+                      <p className="text-xs text-muted-foreground">{t.role}</p>
+                    </div>
+                    <span className="text-[11px] bg-white border border-border/50 px-2 py-0.5 rounded font-medium text-muted-foreground shadow-2xs">
+                      {t.location}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Immersive Action Call to Action */}
+        <section className="py-24 sm:py-32 bg-primary text-white relative overflow-hidden border-t border-white/5">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(0,188,212,0.08),transparent_45%)]" />
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Ready to Experience True Spotless Standards?</h2>
+            <p className="text-base sm:text-lg text-white/70 max-w-xl mx-auto leading-relaxed font-normal">
+              Acquire an immediate architectural service estimation breakdown or reach our staging dispatch lines directly.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/estimate">
-                <Button className="w-full sm:w-auto bg-accent text-primary hover:bg-accent/90 text-base px-8 py-6 font-semibold">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+              <Link href="/estimate" className="w-full sm:w-auto">
+                <Button className="w-full sm:w-auto bg-accent text-primary hover:bg-[#4dd0e1] font-bold h-12 px-8 rounded-xl shadow-xl shadow-accent/10 transition-colors cursor-pointer">
                   Request Free Quote
                 </Button>
               </Link>
-              <a href="tel:(202)355-8110">
-                <Button className="w-full sm:w-auto bg-white text-primary hover:bg-white/90 text-base px-8 py-6 font-semibold">
+              <a href="tel:(202)355-8110" className="w-full sm:w-auto">
+                <Button variant="outline" className="w-full sm:w-auto border-white/15 text-white hover:bg-white/5 font-bold h-12 px-8 rounded-xl">
                   (202) 355-8110
                 </Button>
               </a>
@@ -147,33 +234,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Testimonials */}
-        <section className="py-20 md:py-28 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">What Our Clients Say</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="bg-white rounded-xl p-8 border border-border">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} size={16} className="fill-accent text-accent" />
-                    ))}
-                  </div>
-                  <p className="text-foreground mb-4">
-                    &quot;Exceptional service! The team was professional, thorough, and left our home spotless. Highly recommended!&quot;
-                  </p>
-                  <p className="font-semibold text-primary">Sarah M.</p>
-                  <p className="text-sm text-muted-foreground">Fort Belvoir, VA</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
